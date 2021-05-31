@@ -135,6 +135,7 @@ spec:
 {{- end }}
 {{- end }}
 {{ include "pega.jvmconfig" (dict "node" .node) | indent 8 }}
+{{ include "external-secrets-env-variables" .root | indent 8 }}
         # Tier of the Pega node
         - name: NODE_TIER
           value: {{ .tierName }}

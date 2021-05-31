@@ -268,3 +268,13 @@ true
 {{- $d2 := merge $ $d1 }}
 {{- template "searchURL" $d2 }}
 {{- end -}}
+
+{{- define "external-secrets-env-variables"}}
+{{- range $key, $val := .Values.global.env.externalsecret }}
+- name: SECRET_{{ $key }}
+  valueFrom:
+    secretKeyRef:
+      name: pega-ext-secrets-cred
+      key: {{ $key }}
+{{- end}}
+{{- end }}

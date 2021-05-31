@@ -65,6 +65,12 @@ global:
     kube-apiserver:
       serviceHost: "API_SERVICE_ADDRESS"
       httpsServicePort: "SERVICE_PORT_HTTPS"
+  env:
+    externalsecret:
+      CASSANDRA_USERNAME: controlplane/cassandra_username
+      CASSANDRA_PASSWORD: controlplane/cassandra_password
+      CASSANDRA_TRUSTSTORE_USERNAME: controlplane/cassandra_truststore_username
+      CASSANDRA_TRUSTSTORE_PASSWORD: controlplane/cassandra_truststore_password
 
   # Specify the Pega tiers to deploy
   tier:
