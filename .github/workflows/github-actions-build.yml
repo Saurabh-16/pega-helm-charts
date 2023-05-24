@@ -70,7 +70,6 @@ jobs:
           helm lint --with-subcharts --values lint/values.yml --strict charts/addons
           helm lint --with-subcharts --values lint/values.yml --strict charts/backingservices
           helm lint --with-subcharts --values lint/values.yml --strict charts/pega
->>>>>>> b965d090a4741fdcc30721b2c3902631eb7a3806
 
   run-remark-job:
     runs-on: ubuntu-20.04
