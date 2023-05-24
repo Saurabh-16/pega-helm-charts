@@ -37,6 +37,20 @@ jobs:
           yamllint -c .yamllint.yml -s $(find . -type f -name "Chart.yaml")
           yamllint -c .yamllint.yml -s $(find . -type f -name "values*.yaml")
 
+      - name: Install xml lint
+        run: |  
+          sudo apt -y install libxml2-utils
+
+      - name: run xml lint for deploy configuration
+        run: |
+          cd charts/pega/charts/installer/config/
+          find . -name "*.xml*" -type f -exec xmllint --noout --format '{}' --quiet \;
+
+      - name: run xml lint for installer configuration
+        run: |
+          cd charts/pega/config/
+          find . -name "*.xml*" -type f -exec xmllint --noout --format '{}' --quiet \;    
+
   run-remark-job:
     runs-on: ubuntu-20.04
     steps:
