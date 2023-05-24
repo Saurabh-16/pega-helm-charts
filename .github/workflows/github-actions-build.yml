@@ -52,8 +52,8 @@ jobs:
       - name: run xml lint for installer configuration
         run: |
           cd charts/pega/charts/installer/config/
-          find . -name "*.xml*" -type f -exec xmllint --noout -nonet --format '{}' \;
-          i
+          if ! xmllint --output '{}' --format '{}'  *.xml* > /dev/null 2>&1
+          exit 1
 
       - name: run xml lint for deploy configuration
         run: |
