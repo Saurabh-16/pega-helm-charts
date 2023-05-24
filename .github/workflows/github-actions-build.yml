@@ -52,12 +52,12 @@ jobs:
       - name: run xml lint for installer configuration
         run: |
           cd charts/pega/charts/installer/config/
-          find . -name "*.xml*" -type f -exec xmllint --noout --format '{}' \;
+          find . -name "*.xml*" -type f -exec xmllint --format '{}' \;
 
       - name: run xml lint for deploy configuration
         run: |
           cd charts/pega/config/
-          find . -name "*.xml*" -type f -exec xmllint --noout --format '{}' \;    
+          find . -name "*.xml*" -type f -exec xmllint --format '{}' \;    
 
       - name: update helm dependencies
         run: |
