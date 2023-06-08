@@ -16,7 +16,7 @@
 			</PatternLayout>
 			<Filters>
                 <!--Deny message logged under ALERT log level-->
-                <ThresholdFilter level="ALERT" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="ALERT" onMatch="DENY" onMismatch="NEUTRAL/>
             </Filters>		
 			<Policies>
 				<TimeBasedTriggeringPolicy />
