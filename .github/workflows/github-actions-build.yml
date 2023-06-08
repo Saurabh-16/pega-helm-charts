@@ -49,16 +49,8 @@ jobs:
         run: |  
           sudo apt -y install libxml2-utils
 
-      - name: run xml lint for installer xml files
+      - name: run xml lint for deploy and installer xml files
         run: |
-          cp validatexml.sh charts/pega/charts/installer/config
-          cd charts/pega/charts/installer/config
-          sh validatexml.sh 
-
-      - name: run xml lint for deploy xml files
-        run: |
-          cp validatexml.sh charts/pega/config/deploy
-          cd charts/pega/config/deploy
           sh validatexml.sh      
 
       - name: update helm dependencies
