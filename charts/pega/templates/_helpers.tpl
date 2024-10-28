@@ -513,7 +513,7 @@ servicePort: use-annotation
 {{- if and (.node.tcpKeepAliveProbe) ((semverCompare ">= 1.29.0-0" (trimPrefix "v" .root.Capabilities.KubeVersion.GitVersion))) }}
 sysctls:
 - name: net.ipv4.tcp_keepalive_time
-  value: {{ .node.tcpKeepAliveProbe }}
+  value: "{{ .node.tcpKeepAliveProbe }}"
 {{- end}}
 {{- end}}
 

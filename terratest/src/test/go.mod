@@ -8,8 +8,8 @@ require (
 	github.com/GoogleCloudPlatform/gke-managed-certs v0.3.4
 	github.com/gruntwork-io/terratest v0.28.5
 	github.com/stretchr/testify v1.6.1
-	k8s.io/api v0.20.0
-	k8s.io/apimachinery v0.20.0
+	k8s.io/api v0.29.0
+	k8s.io/apimachinery v0.23.0
 	k8s.io/ingress-gce v1.15.2
 )
 
@@ -62,7 +62,7 @@ require (
 	gopkg.in/inf.v0 v0.9.1 // indirect
 	gopkg.in/yaml.v2 v2.3.0 // indirect
 	gopkg.in/yaml.v3 v3.0.0 // indirect
-	k8s.io/client-go v0.20.0 // indirect
+	k8s.io/client-go v0.29.0 // indirect
 	k8s.io/klog/v2 v2.4.0 // indirect
 	k8s.io/kube-openapi v0.0.0-20201113171705-d219536bb9fd // indirect
 	k8s.io/utils v0.0.0-20201110183641-67b214c5f920 // indirect
