@@ -282,6 +282,8 @@ until cqlsh -u {{ $cassandraUser | quote }} -p {{ $cassandraPassword | quote }} 
   {{- add $passivationTime $passivationDelay -}}
 {{- end -}}
 
+
+
 # Determine application root context to use in pega tomcat nodes
 {{- define "pega.applicationContextPath" -}}
    {{- if .node.ingress -}}
@@ -506,6 +508,15 @@ servicePort: use-annotation
     v4
   {{- end -}}
 {{- end -}}
+
+{{- define "tcpKeepAliveSetting" }} {
+  {{- if and (semverCompare ">= 1.29.0-0" (trimPrefix "v" .root.Capabilities.KubeVersion.GitVersion)) (.node.tcpKeepAliveProbe) }}
+        sysctls:
+        - name: "net.ipv4.tcp_keepalive_time"
+          value: "{{ .node.tcpKeepAliveProbe }}"
+  {{- end }}
+{{- end}}
+}
 
 {{- define "pegaCredentialVolumeTemplate" }}
 - name: {{ template "pegaVolumeCredentials" }}
