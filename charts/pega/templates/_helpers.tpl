@@ -509,14 +509,14 @@ servicePort: use-annotation
   {{- end -}}
 {{- end -}}
 
-{{- define "tcpKeepAliveSetting" }} {
-  {{- if and (semverCompare ">= 1.29.0-0" (trimPrefix "v" .root.Capabilities.KubeVersion.GitVersion)) (.node.tcpKeepAliveProbe) }}
-        sysctls:
-        - name: "net.ipv4.tcp_keepalive_time"
-          value: "{{ .node.tcpKeepAliveProbe }}"
+{{- define "tcpKeepAliveSetting" }}
+  {{- if (.node.tcpKeepAliveProbe) }}
+    sysctls:
+      - name: "net.ipv4.tcp_keepalive_time"
+        value: "{{ .node.tcpKeepAliveProbe }}"
   {{- end }}
 {{- end}}
-}
+
 
 {{- define "pegaCredentialVolumeTemplate" }}
 - name: {{ template "pegaVolumeCredentials" }}

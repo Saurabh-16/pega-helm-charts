@@ -117,7 +117,7 @@ spec:
         runAsUser: 9001
         fsGroup: 0
 {{- end }}
-{{- include "tcpKeepAliveSetting" (dict "root" .root "node" .node ) | indent 6 }}
+{{- include "tcpKeepAliveSetting" (dict "node" .node ) | indent 8 }}
 {{- if .node.securityContext }}
 {{ toYaml .node.securityContext | indent 8 }}
 {{- end }}
